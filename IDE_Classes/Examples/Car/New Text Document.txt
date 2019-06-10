@@ -1,0 +1,53 @@
+>>>> P_H_Ep_total = 0.0
+>>>> P_H_Ep = 0.0
+>>>> LSp = 0.0
+
+Creating a car instance  vehicle_make = HONDA.
+
+---Start1
+
+>>>> P_H_Ep_total = 0.1
+>>>> P_H_Ep = 1.0
+>>>> LSp = 1.0
+
+Hello sir my name is albert.
+
+Please turn on the key of your HONDA.
+
+Is the engine turning over (yes/no)? yesCertainty measure?4----Start
+
+>>>> P_H_Ep_total = 0.81641614933414
+>>>> P_H_Ep = 0.10000000149011612
+>>>> LSp = 40.02391995459802
+
+how are your headlights (working/dim/dead) ?dimCertainty measure?4and spark plug spark (none/exists)?existsCertainty measure?4status of your fuel gauge (full/empty):fullCertainty measure?4smell on your carburetor (yes/no) ?noCertainty measure?4FuelIgnition
+
+
+Debug:
+LoadObjectsFromWM_true in
+1_
+2_
+3_
+4_
+out2
+LoadObjectsFromWM_true in
+1_
+2_
+3_
+4_
+out2
+LoadObjectsFromWM_true in
+
+-----------------------------STOPPED
+
+after starting new instance in parallel it stucks
+
+Debug:
+
+1_
+2_
+3_
+4_
+out2
+
+-------------------STucked

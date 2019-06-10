@@ -1,0 +1,54 @@
+//***   Rules   ***
+(RULE: Input1 10
+	IF
+		(CLASS: container OBJ: $x
+			(
+				(variable1=="unknown") AND
+				(variable2=="unknown")))
+	THEN (
+		(READ PROMPT: "Variable 1?" VAR: $h TYPE: s)
+		(MODIFY OBJ: $x 
+			(variable1 $h)
+		 2000 0.001)
+	) COMMENT: "")
+
+(RULE: Input2 10
+	IF
+		(CLASS: container OBJ: $x
+			(
+				(variable1!="unknown") AND
+				(variable2=="unknown")))
+	THEN (
+		(READ PROMPT: "Variable 2?" VAR: $h TYPE: s)
+		(MODIFY OBJ: $x 
+			(variable2 $h)
+		 1000 0.005)
+	) COMMENT: "")
+
+(RULE: Start1 20
+	IF
+		(CLASS: COSMOS_START OBJ: $x
+			(init_status==1))
+	THEN (
+		(MAKE CLASS: container OBJ: object
+			(variable1 "unknown")
+			(variable2 "unknown")
+		)
+		(MODIFY OBJ: $x 
+			(init_status 2)
+		 1000 0.001)
+	) COMMENT: "")
+
+(RULE: Final 20
+	IF
+		(
+			(CLASS: container OBJ: $c
+				(variable1==$variable1)) AND
+			(CLASS: container OBJ: $c
+				(variable2==$variable1)))
+	THEN (
+		(PRINT 
+			"Finito OK "
+		)
+	) COMMENT: "")
+

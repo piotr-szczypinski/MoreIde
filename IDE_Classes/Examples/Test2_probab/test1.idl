@@ -1,0 +1,15 @@
+module ReteObjects{
+	struct container{
+		string variable1;
+			float _ln_variable1;
+			float _ls_variable1;
+		string variable2;
+			float _ln_variable2;
+			float _ls_variable2;
+	};
+	struct COSMOS_START{
+		long init_status;
+			float _ln_init_status;
+			float _ls_init_status;
+	};
+};

@@ -1,0 +1,363 @@
+#cn {
+	DISPLAY: block; BACKGROUND-IMAGE: url(../images/corporate_logo.gif); WIDTH: 138px; HEIGHT: 17px
+}
+#poweredby {
+	DISPLAY: block; BACKGROUND-IMAGE: url(../images/poweredby_036.gif); WIDTH: 102px; HEIGHT: 38px
+}
+#sc {
+	DISPLAY: block; BACKGROUND-IMAGE: url(../images/product_logo.gif); WIDTH: 138px; HEIGHT: 25px
+}
+#toptabs TD {
+	BACKGROUND-IMAGE: url(../images/nw_min_036.gif)
+}
+#toptabs TH {
+	BACKGROUND-IMAGE: url(../images/nw_min_036.gif)
+}
+.app H3 {
+	COLOR: #fff; BACKGROUND-COLOR: #036
+}
+#banner {
+	COLOR: #fff; BACKGROUND-COLOR: #036
+}
+#banner TD {
+	COLOR: #fff; BACKGROUND-COLOR: #036
+}
+#toptabs {
+	COLOR: #fff; BACKGROUND-COLOR: #036
+}
+BODY #banner TD A {
+	COLOR: #fff! important
+}
+.app H3 A {
+	COLOR: #fff! important
+}
+.app H4 A {
+	COLOR: #fff! important
+}
+#banner {
+	BORDER-TOP: #369 1px solid
+}
+#topmodule {
+	BORDER-TOP: #fff 1px solid; BORDER-BOTTOM: #aaa 1px solid; BACKGROUND-COLOR: #ddd
+}
+#topmodule #issueid {
+	BORDER-RIGHT: #aaa 1px solid
+}
+#login A:link {
+	COLOR: white; TEXT-DECORATION: underline
+}
+#login A:visited {
+	COLOR: white; TEXT-DECORATION: underline
+}
+#banner A:active {
+	COLOR: #f90! important
+}
+#banner A:hover {
+	COLOR: #f90! important
+}
+#toptabs TD {
+	BORDER-RIGHT: #333 1px solid; BORDER-LEFT: #036 1px solid; BORDER-BOTTOM: #666 1px solid
+}
+#toptabs TH {
+	BORDER-LEFT: #036 1px solid
+}
+#bodycol H2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 1.5em; FONT-FAMILY: Tahoma, Verdana, Helvetica, Arial, sans-serif
+}
+#toptabs {
+	PADDING-LEFT: 8px; MARGIN: 0px; PADDING-TOP: 0.67em
+}
+#topmodule {
+	MARGIN: -4px -4px 0px
+}
+#topmodule TD {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; PADDING-BOTTOM: 2px; VERTICAL-ALIGN: middle; PADDING-TOP: 2px
+}
+#navcolumn {
+	MARGIN-RIGHT: -4px
+}
+BODY {
+	COLOR: #333
+}
+.app H3 {
+	BACKGROUND-IMAGE: none; BACKGROUND-REPEAT: no-repeat
+}
+.app H4 {
+	BACKGROUND-IMAGE: none; BACKGROUND-REPEAT: no-repeat
+}
+.functnbar {
+	BACKGROUND-IMAGE: none; BACKGROUND-REPEAT: no-repeat
+}
+#toptabs TD {
+	BACKGROUND-IMAGE: url(../images/nw_min.gif)
+}
+#toptabs TH {
+	BACKGROUND-IMAGE: url(../images/nw_min.gif)
+}
+#navcolumn .body DIV {
+	BACKGROUND-POSITION: 0.5em 0.5em; BACKGROUND-IMAGE: url(../images/strich.gif); BACKGROUND-REPEAT: no-repeat
+}
+BODY.docs #toc LI LI {
+	BACKGROUND-POSITION: 0.5em 0.5em; BACKGROUND-IMAGE: url(../images/strich.gif); BACKGROUND-REPEAT: no-repeat
+}
+#banner {
+	COLOR: #333; BACKGROUND-COLOR: #fff
+}
+#banner TD {
+	COLOR: #333; BACKGROUND-COLOR: #fff
+}
+#toptabs {
+	COLOR: #333; BACKGROUND-COLOR: #fff
+}
+.app H3 {
+	COLOR: #fff; BACKGROUND-COLOR: #594fbf
+}
+#toptabs TH {
+	BORDER-LEFT: #fff 1px solid
+}
+#toptabs TD {
+	BORDER-RIGHT: #333 1px solid; BORDER-LEFT: #fff 1px solid
+}
+#login {
+	COLOR: #333
+}
+#banner {
+	COLOR: #333
+}
+A:link {
+	COLOR: #594fbf
+}
+A:visited {
+	COLOR: #594fbf
+}
+#navcolumn A:visited {
+	COLOR: #594fbf
+}
+#navcolumn A:link {
+	COLOR: #594fbf
+}
+.app A:visited {
+	COLOR: #594fbf
+}
+.tasknav A:visited {
+	COLOR: #594fbf
+}
+#mytools A:link {
+	BORDER-BOTTOM-STYLE: none
+}
+#banner A:link {
+	BORDER-BOTTOM-STYLE: none
+}
+#banner A:visited {
+	BORDER-BOTTOM-STYLE: none
+}
+A.selfref:link {
+	COLOR: #555! important; TEXT-DECORATION: none
+}
+A.selfref:visited {
+	COLOR: #555! important; TEXT-DECORATION: none
+}
+#banner A:active {
+	COLOR: #f60! important
+}
+#banner A:hover {
+	COLOR: #f60! important
+}
+#login A:link {
+	FONT-WEIGHT: bold; COLOR: #594fbf! important
+}
+#login A:visited {
+	FONT-WEIGHT: bold; COLOR: #594fbf! important
+}
+#banner A:link {
+	FONT-WEIGHT: bold; COLOR: #594fbf! important
+}
+#banner A:visited {
+	FONT-WEIGHT: bold; COLOR: #594fbf! important
+}
+#bannerbottom1 TD {
+	BACKGROUND: #efefef
+}
+#bannerbottom2 TD {
+	BACKGROUND: #efefef
+}
+#bannerbottom1 TH {
+	BACKGROUND: #2e1772
+}
+#bannerbottom2 TH {
+	BACKGROUND: #594fbf
+}
+.grid TD {
+	BORDER-TOP: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid
+}
+.grid {
+	BORDER-RIGHT: #ccc 1px solid; BORDER-BOTTOM: #ccc 1px solid
+}
+#banner {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+.app H3 {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN-LEFT: 2px; MARGIN-RIGHT: 2px; PADDING-TOP: 3px
+}
+.app H4 {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN-LEFT: 2px; MARGIN-RIGHT: 2px; PADDING-TOP: 3px
+}
+#rightcol DIV.www {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+#rightcol DIV.help {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+#rightcol DIV.www H3 {
+	COLOR: #000; BACKGROUND-COLOR: #ddd
+}
+#rightcol DIV.www H3 {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+#bannerbottom1 TH {
+	VERTICAL-ALIGN: bottom; TEXT-ALIGN: left
+}
+#bannerbottom2 TH {
+	VERTICAL-ALIGN: bottom; TEXT-ALIGN: left
+}
+BODY {
+	COLOR: #333; FONT-FAMILY: lucida,arial,sans-serif
+}
+TH {
+	COLOR: #333; FONT-FAMILY: lucida,arial,sans-serif
+}
+TD {
+	COLOR: #333; FONT-FAMILY: lucida,arial,sans-serif
+}
+P {
+	COLOR: #333; FONT-FAMILY: lucida,arial,sans-serif
+}
+FORM {
+	DISPLAY: inline
+}
+FORM {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+SELECT {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+INPUT {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+TEXTAREA {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.small {
+	FONT-SIZE: 11px
+}
+.small A {
+	FONT-SIZE: 11px
+}
+.sunred {
+	BACKGROUND: #d12124
+}
+.sunblue {
+	BACKGROUND: #594fbf
+}
+.sunyellow {
+	BACKGROUND: #fbe249
+}
+.sunred {
+	COLOR: #fff
+}
+.sunblue {
+	COLOR: #fff
+}
+TD.sunred A {
+	COLOR: #fff
+}
+TD.sunblue A {
+	COLOR: #fff
+}
+DIV.space {
+	CLEAR: both; WIDTH: 100%; HEIGHT: 1em
+}
+#apphead H2 {
+	FONT-SIZE: 11px; COLOR: gray
+}
+#apphead H2 SMALL {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: black
+}
+.axial TH {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; WIDTH: 100px; COLOR: gray; BACKGROUND-COLOR: #fff
+}
+.axial TD {
+	COLOR: black; BACKGROUND-COLOR: transparent
+}
+#breadcrumbs {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px
+}
+DIV.tabs TH {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px
+}
+DIV.tabs TD {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px
+}
+DIV#login {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px
+}
+DIV#footer {
+	FONT-SIZE: 11px
+}
+DIV#footer TABLE {
+	FONT-SIZE: 11px
+}
+INPUT {
+	FONT-SIZE: 11px
+}
+SELECT {
+	FONT-SIZE: 11px
+}
+.paginate {
+	FONT-SIZE: 11px
+}
+.functnbar {
+	FONT-SIZE: 11px
+}
+.functnbar2 {
+	FONT-SIZE: 11px
+}
+.functnbar3 {
+	FONT-SIZE: 11px
+}
+.courtesylinks {
+	FONT-SIZE: 11px
+}
+#rightcol DIV.help {
+	FONT-SIZE: 11px
+}
+.colbar {
+	FONT-SIZE: 11px
+}
+.tasknav {
+	FONT-SIZE: 11px
+}
+BODY.docs DIV#toc {
+	FONT-SIZE: 11px
+}
+#leftcol {
+	FONT-SIZE: 11px
+}
+.legend {
+	FONT-SIZE: 11px
+}
+.bars {
+	FONT-SIZE: 11px
+}
+.toolgroup {
+	BACKGROUND: #eee; MARGIN-BOTTOM: 6px
+}
+.toolgroup .label {
+	BORDER-RIGHT: #666 1px solid; PADDING-RIGHT: 4px; PADDING-LEFT: 4px; BACKGROUND: #ccc; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; BORDER-BOTTOM: #666 1px solid
+}
+.toolgroup .body {
+	BORDER-RIGHT: #aaa 1px solid; PADDING-RIGHT: 4px; PADDING-LEFT: 0px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; BORDER-BOTTOM: #aaa 1px solid
+}
+.toolgroup .body DIV {
+	PADDING-LEFT: 1em; PADDING-BOTTOM: 0.3em
+}

@@ -1,0 +1,18 @@
+module ReteObjects{
+	struct Crime{
+		string VictimeKnewAndTrustedKiller;
+		string InStudy;
+		string InBedroom;
+		string InDressingRoom;
+		string Footprints;
+		string WindowsDoorsLocked;
+		string FornitureDisturbed;
+		string MarksFromAttacker;
+		string VictimeDidNotStrugle;
+		string NoSignOfBrakein;
+		string CrimeInPrivateDomain;
+	};
+	struct COSMOS_START{
+		long init_status;
+	};
+};

@@ -1,0 +1,14 @@
+module ReteObjects{
+	struct container{
+		double variable1;
+			float _P_H_Ep_variable1;
+		double variable2;
+			float _P_H_Ep_variable2;
+		double variable3;
+			float _P_H_Ep_variable3;
+	};
+	struct COSMOS_START{
+		long init_status;
+			float _P_H_Ep_init_status;
+	};
+};

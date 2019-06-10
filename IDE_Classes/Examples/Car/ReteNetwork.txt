@@ -1,0 +1,290 @@
+//==============================================================================
+//==============================================================================
+//==                                    ===****=====**=====**=====****==========
+//==  ParsingResults                    ===*===*====*=*===*=*====*====*=========
+//==                                    ===*===*====*==*=*==*=====**============
+//==  (C) 2002 by Piotr M. Szczypinski  ===****=====*===*===*=======**==========
+//==  NIST - Gaithersburg               ===*========*=======*====*====*=========
+//==                                    ===*========*=======*=====****==========
+//==============================================================================
+//==============================================================================
+
+----Conditions: reduced list --------------------
+// Unique conditions (may be multiplied in different rules)
+// index	object:variable_name:relation:expression
+1	car:problem:==:"unknown"
+2	car:init_problem:==:"starting_system"
+3	car:headlights:==:"dim"
+4	car:headlights:==:"dead"
+5	car:init_problem:==:"fuel_or_ignition"
+6	car:headlights:==:"working"
+7	car:spark_plug_spark:==:"none"
+8	car:fuel_gauge_reading:==:"full"
+9	car:carburetor_gas:==:"yes"
+10	car:fuel_gauge_reading:==:"empty"
+11	car:spark_plug_spark:==:"exists"
+12	car:init_problem:==:"unknown"
+13	car:ignition_key:==:"on"
+14	car:engine_turning_over:==:"yes"
+15	car:engine_turning_over:==:"no"
+16	COSMOS_START:init_status:==:1
+17	car:vehicle_make:==: $11$mak 
+18	car:ignition_key:!=:"on"
+19	mechanic:first_name:==: $11$name 
+20	car:problem:!=:"unknown"
+21	car:problem:==: $12$problem 
+
+----Variables    ------------------------------
+// Variables used in LHS of rule
+// index	&rule_no&variable_name
+1	 $11$mak 
+2	 $11$name 
+3	 $12$problem 
+
+----Additional Variables ---------------------
+// Variables used only in RHS of rule
+// index	&rule_no&variable_name
+1	 $8$h 
+2	 $8$s 
+3	 $8$carbu 
+4	 $8$g 
+5	 $9$h 
+6	 $11$ans 
+
+----Conditions  ------------------------------
+// List of all conditions
+// index of condition : object in token : -check or variable index
+1	1:0:0:4	car:0:problem:==:"unknown"
+2	2:0:0:4	car:0:init_problem:==:"starting_system"
+3	3:0:0:4	car:0:headlights:==:"dim"
+4	4:0:0:4	car:0:headlights:==:"dead"
+5	5:0:0:4	car:0:init_problem:==:"fuel_or_ignition"
+6	6:0:0:4	car:0:headlights:==:"working"
+7	7:0:0:4	car:0:spark_plug_spark:==:"none"
+8	8:0:0:4	car:0:fuel_gauge_reading:==:"full"
+9	9:0:0:4	car:0:carburetor_gas:==:"yes"
+10	10:0:0:4	car:0:fuel_gauge_reading:==:"empty"
+11	11:0:0:4	car:0:spark_plug_spark:==:"exists"
+12	12:0:0:4	car:0:init_problem:==:"unknown"
+13	13:0:0:4	car:0:ignition_key:==:"on"
+14	14:0:0:4	car:0:engine_turning_over:==:"yes"
+15	15:0:0:4	car:0:engine_turning_over:==:"no"
+16	16:0:0:1	COSMOS_START:0:init_status:==:1
+17	17:0:1:8	car:0:vehicle_make:==: $11$mak 
+18	18:0:0:4	car:0:ignition_key:!=:"on"
+19	19:1:2:8	mechanic:1:first_name:==: $11$name 
+20	20:0:0:4	car:0:problem:!=:"unknown"
+21	21:0:3:8	car:0:problem:==: $12$problem 
+
+----objects sent------------------------------
+1	car:0:problem:==:"unknown"
+2	car:0:init_problem:==:"starting_system"
+3	car:0:headlights:==:"dim"
+4	car:0:headlights:==:"dead"
+5	car:0:init_problem:==:"fuel_or_ignition"
+6	car:0:headlights:==:"working"
+7	car:0:spark_plug_spark:==:"none"
+8	car:0:fuel_gauge_reading:==:"full"
+9	car:0:carburetor_gas:==:"yes"
+10	car:0:fuel_gauge_reading:==:"empty"
+11	car:0:spark_plug_spark:==:"exists"
+12	car:0:init_problem:==:"unknown"
+13	car:0:ignition_key:==:"on"
+14	car:0:engine_turning_over:==:"yes"
+15	car:0:engine_turning_over:==:"no"
+16	COSMOS_START:0:init_status:==:1
+17	car:0:vehicle_make:==: $11$mak 
+18	car:0:ignition_key:!=:"on"
+19	mechanic:1:first_name:==: $11$name 
+20	car:0:problem:!=:"unknown"
+21	car:0:problem:==: $12$problem 
+
+----Nodes     --------------------------------
+1	AND 2 3
+2	AND 1 -1
+3	AND 1 4
+4	AND 6 7
+5	AND 5 -4
+6	AND 1 -5
+7	AND 8 9
+8	AND 5 -7
+9	AND 1 -8
+10	AND 5 10
+11	AND 1 -10
+12	AND 2 6
+13	AND 1 -12
+14	AND 9 11
+15	AND 5 -14
+16	AND 1 -15
+17	AND 13 14
+18	AND 12 -17
+19	AND 1 -18
+20	AND 13 15
+21	AND 12 -20
+22	AND 1 -21
+23	AND 17 18
+24	AND 1 -23
+25	AND -24 19
+26	AND 20 21
+
+----Rules      -------------------------------
+1	-9	ProblemDeadBattery1:-2:1:2:0:10
+2	-11	ProblemDeadBattery2:-3:1:1:0:10
+3	-6	ProblemBadIgnition:-6:1:3:0:10
+4	-5	ProblemFuelSystem:-9:1:3:0:10
+5	-8	ProblemNoGas:-11:1:2:0:10
+6	-7	ProblemBadStarter:-13:1:2:0:10
+7	-4	ProblemFloodedEng:-16:1:3:0:10
+8	-3	ProblemFuelIgn:-19:1:3:0:10
+9	-2	ProblemStartSystem:-22:1:3:0:10
+10	-12	Start1:16:1:0:0:20
+11	-1	Start:-25:2:3:0:20
+12	-10	FinalDiagnostic:-26:1:1:0:20
+
+----RulesVIR   -------------------------------
+// Dependencies between rules and variables (used in backward chaining)
+1	 car:problem car:init_problem car:headlights
+2	 car:problem car:headlights
+3	 car:problem car:init_problem car:headlights car:spark_plug_spark
+4	 car:problem car:init_problem car:fuel_gauge_reading car:carburetor_gas
+5	 car:problem car:init_problem car:fuel_gauge_reading
+6	 car:problem car:init_problem car:headlights
+7	 car:problem car:init_problem car:carburetor_gas car:spark_plug_spark
+8	 car:problem car:init_problem car:ignition_key car:engine_turning_over
+9	 car:problem car:init_problem car:ignition_key car:engine_turning_over
+10	 COSMOS_START:init_status
+11	 car:problem car:vehicle_make car:ignition_key mechanic:first_name
+12	 car:problem
+
+----RulesCIR   -------------------------------
+// Dependencies between rules and entries in MODIFY list
+1	 1 2 3
+2	 1 4
+3	 1 5 6 7
+4	 1 5 8 9
+5	 1 5 10
+6	 1 2 6
+7	 1 5 9 11
+8	 1 12 13 14
+9	 1 12 13 15
+10	 16
+11	 1 17 18 19
+12	 20 21
+
+----MAKE list   ------------------------------
+1	car:Acar 9
+2	mechanic:Amec 9
+
+----MODIFY list ------------------------------
+1	car:problem 0 10000 0.001
+2	car:problem 1 13000 0.001
+3	car:problem 2 1000 0.001
+4	car:problem 3 1000 0.001
+5	car:problem 4 1000 0.001
+6	car:problem 5 1000 0.001
+7	car:problem 6 1000 0.001
+8	car:init_problem 7 1000 0.001
+9	car:headlights 7 1000 0.001
+10	car:spark_plug_spark 7 1000 0.001
+11	car:carburetor_gas 7 1000 0.001
+12	car:fuel_gauge_reading 7 1000 0.001
+13	car:init_problem 8 2000 0.001
+14	car:headlights 8 2000 0.001
+15	COSMOS_START:init_status 9 1000 0.001
+16	car:init_problem 10 2000 0.001
+17	car:ignition_key 10 2000 0.001
+18	car:engine_turning_over 10 2000 0.001
+19	car:ignition_key 11 2000 0.001
+20	car:problem 11 2000 0.001
+21	car:init_problem 11 2000 0.001
+
+//----NETWORK CONFIG----------------------------
+
+		[0]root -> [1]Rule12_FinalDiagnostic
+		[1]Rule12_FinalDiagnostic -> [2]And26
+			[2]And26 -> [3]Condition20
+			[2]And26 -> [4]Condition21
+
+		[0]root -> [5]Rule11_Start
+		[5]Rule11_Start -> [6]And25
+			[6]And25 -> [7]And24
+				[7]And24 -> [8]Condition1
+				[7]And24 -> [9]And23
+					[9]And23 -> [10]Condition17
+					[9]And23 -> [11]Condition18
+			[6]And25 -> [12]Condition19
+
+		[0]root -> [13]Rule10_Start1
+		[13]Rule10_Start1 -> [14]Condition16
+
+		[0]root -> [15]Rule9_ProblemStartSystem
+		[15]Rule9_ProblemStartSystem -> [16]And22
+			[16]And22 -> [17]Condition1
+			[16]And22 -> [18]And21
+				[18]And21 -> [19]Condition12
+				[18]And21 -> [20]And20
+					[20]And20 -> [21]Condition13
+					[20]And20 -> [22]Condition15
+
+		[0]root -> [23]Rule8_ProblemFuelIgn
+		[23]Rule8_ProblemFuelIgn -> [24]And19
+			[24]And19 -> [25]Condition1
+			[24]And19 -> [26]And18
+				[26]And18 -> [27]Condition12
+				[26]And18 -> [28]And17
+					[28]And17 -> [29]Condition13
+					[28]And17 -> [30]Condition14
+
+		[0]root -> [31]Rule7_ProblemFloodedEng
+		[31]Rule7_ProblemFloodedEng -> [32]And16
+			[32]And16 -> [33]Condition1
+			[32]And16 -> [34]And15
+				[34]And15 -> [35]Condition5
+				[34]And15 -> [36]And14
+					[36]And14 -> [37]Condition9
+					[36]And14 -> [38]Condition11
+
+		[0]root -> [39]Rule6_ProblemBadStarter
+		[39]Rule6_ProblemBadStarter -> [40]And13
+			[40]And13 -> [41]Condition1
+			[40]And13 -> [42]And12
+				[42]And12 -> [43]Condition2
+				[42]And12 -> [44]Condition6
+
+		[0]root -> [45]Rule5_ProblemNoGas
+		[45]Rule5_ProblemNoGas -> [46]And11
+			[46]And11 -> [47]Condition1
+			[46]And11 -> [48]And10
+				[48]And10 -> [49]Condition5
+				[48]And10 -> [50]Condition10
+
+		[0]root -> [51]Rule4_ProblemFuelSystem
+		[51]Rule4_ProblemFuelSystem -> [52]And9
+			[52]And9 -> [53]Condition1
+			[52]And9 -> [54]And8
+				[54]And8 -> [55]Condition5
+				[54]And8 -> [56]And7
+					[56]And7 -> [57]Condition8
+					[56]And7 -> [58]Condition9
+
+		[0]root -> [59]Rule3_ProblemBadIgnition
+		[59]Rule3_ProblemBadIgnition -> [60]And6
+			[60]And6 -> [61]Condition1
+			[60]And6 -> [62]And5
+				[62]And5 -> [63]Condition5
+				[62]And5 -> [64]And4
+					[64]And4 -> [65]Condition6
+					[64]And4 -> [66]Condition7
+
+		[0]root -> [67]Rule2_ProblemDeadBattery2
+		[67]Rule2_ProblemDeadBattery2 -> [68]And3
+			[68]And3 -> [69]Condition1
+			[68]And3 -> [70]Condition4
+
+		[0]root -> [71]Rule1_ProblemDeadBattery1
+		[71]Rule1_ProblemDeadBattery1 -> [72]And2
+			[72]And2 -> [73]Condition1
+			[72]And2 -> [74]And1
+				[74]And1 -> [75]Condition2
+				[74]And1 -> [76]Condition3
+

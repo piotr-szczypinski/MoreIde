@@ -1,0 +1,9 @@
+module ReteObjects{
+	struct CONTAINER{
+		long read;
+		string info;
+	};
+	struct COSMOS_START{
+		long init_status;
+	};
+};

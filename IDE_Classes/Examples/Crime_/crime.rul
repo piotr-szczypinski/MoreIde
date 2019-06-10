@@ -1,0 +1,178 @@
+//***   Rules   ***
+
+(RULE: InStudy 30
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(InStudy!="yes") AND
+				(InStudy!="no")))
+	THEN (
+		(READ PROMPT: "Did the crime occured in the victims study? (yes/no)" VAR: $s TYPE: s)
+		(MODIFY OBJ: $GarthwaiteCase 
+			(InStudy $s)
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: InBedroom 30
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(InBedroom!="yes") AND
+				(InBedroom!="no")))
+	THEN (
+		(READ PROMPT: "Did the crime occured in the victims bedroom? (yes/no)" VAR: $s TYPE: s)
+		(MODIFY OBJ: $GarthwaiteCase 
+			(InBedroom $s)
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: InDressingRoom 30
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(InDressingRoom!="yes") AND
+				(InDressingRoom!="no")))
+	THEN (
+		(READ PROMPT: "Did the crime occured in the victims dressing room? (yes/no)" VAR: $s TYPE: s)
+		(MODIFY OBJ: $GarthwaiteCase 
+			(InDressingRoom $s)
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: Footprints 30
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(Footprints!="yes") AND
+				(Footprints!="no")))
+	THEN (
+		(READ PROMPT: "Are there footprints lead from outside to the body? (yes/no)" VAR: $s TYPE: s)
+		(MODIFY OBJ: $GarthwaiteCase 
+			(Footprints $s)
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: WindowsDoorsLocked 30
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(WindowsDoorsLocked!="yes") AND
+				(WindowsDoorsLocked!="no")))
+	THEN (
+		(READ PROMPT: "Are the windows and outer doors locked and free of signs of tampering? (yes/no)" VAR: $s TYPE: s)
+		(MODIFY OBJ: $GarthwaiteCase 
+			(WindowsDoorsLocked $s)
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: FornitureDisturbed 30
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(FornitureDisturbed!="yes") AND
+				(FornitureDisturbed!="no")))
+	THEN (
+		(READ PROMPT: "Is the forniture disturbed? (yes/no)" VAR: $s TYPE: s)
+		(MODIFY OBJ: $GarthwaiteCase 
+			(FornitureDisturbed $s)
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: MarksFromAttacker 30
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(MarksFromAttacker!="yes") AND
+				(MarksFromAttacker!="no")))
+	THEN (
+		(READ PROMPT: "Are there any other marks from the attacker except for the wound? (yes/no)" VAR: $s TYPE: s)
+		(MODIFY OBJ: $GarthwaiteCase 
+			(MarksFromAttacker $s)
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: CrimeInPrivateDomain 10
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(InStudy=="yes") OR
+				(
+					(InBedroom=="yes") OR
+					(InDressingRoom=="yes"))))
+	THEN (
+		(MODIFY OBJ: $GarthwaiteCase 
+			(CrimeInPrivateDomain "yes")
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: NoSignOfBrakein 10
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(Footprints=="no") OR
+				(WindowsDoorsLocked=="yes")))
+	THEN (
+		(MODIFY OBJ: $GarthwaiteCase 
+			(NoSignOfBrakein "yes")
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: VictimeDidNotStrugle 10
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(FornitureDisturbed=="no") AND
+				(MarksFromAttacker=="no")))
+	THEN (
+		(MODIFY OBJ: $GarthwaiteCase 
+			(VictimeDidNotStrugle "yes")
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: Start 20
+	IF
+		(CLASS: COSMOS_START OBJ: $x
+			(init_status==1))
+	THEN (
+		(MAKE CLASS: Crime OBJ: GarthwaiteCase
+			(VictimeKnewAndTrustedKiller "unknown")
+			(InStudy "unknown")
+			(InBedroom "unknown")
+			(InDressingRoom "unknown")
+			(Footprints "unknown")
+			(WindowsDoorsLocked "unknown")
+			(FornitureDisturbed "unknown")
+			(MarksFromAttacker "unknown")
+			(VictimeDidNotStrugle "unknown")
+			(NoSignOfBrakein "unknown")
+			(CrimeInPrivateDomain "unknown")
+		)
+		(MODIFY OBJ: $x 
+			(init_status 2)
+		 1000 0.001)
+	) COMMENT: "")
+
+(RULE: VictimeNewAndTrustedKiller 20
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(VictimeDidNotStrugle=="yes") AND
+				(
+					(NoSignOfBrakein=="yes") AND
+					(CrimeInPrivateDomain=="yes"))))
+	THEN (
+		(MODIFY OBJ: $GarthwaiteCase 
+			(VictimeKnewAndTrustedKiller "yes")
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: PrintAnswer 20
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(VictimeKnewAndTrustedKiller=="yes"))
+	THEN (
+		(PRINT 
+			"The victime knew and trusted killer"
+		)
+	) COMMENT: "")
+

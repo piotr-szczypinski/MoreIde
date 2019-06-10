@@ -1,0 +1,225 @@
+//***   Rules   ***
+(RULE: ProblemDeadBattery1 10
+	IF
+		(CLASS: car OBJ: $x
+			(
+				(problem=="unknown") AND
+				(
+					(init_problem=="starting_system") AND
+					(headlights=="dim"))))
+	THEN (
+		(MODIFY OBJ: $x 
+			(problem " has a dead battery")
+		 10000 0.001)
+		(DISPLAY "battery.jpg")
+	) COMMENT: "")
+
+(RULE: ProblemDeadBattery2 10
+	IF
+		(CLASS: car OBJ: $x
+			(
+				(problem=="unknown") AND
+				(headlights=="dead")))
+	THEN (
+		(MODIFY OBJ: $x 
+			(problem " has a dead_battery")
+		 13000 0.001)
+		(DISPLAY "battery.jpg")
+	) COMMENT: "")
+
+(RULE: ProblemBadIgnition 10
+	IF
+		(CLASS: car OBJ: $x
+			(
+				(problem=="unknown") AND
+				(
+					(init_problem=="fuel_or_ignition") AND
+					(
+						(headlights=="working") AND
+						(spark_plug_spark=="none")))))
+	THEN (
+		(MODIFY OBJ: $x 
+			(problem " has a bad ignition system")
+		 1000 0.001)
+		(DISPLAY "ignition.jpg")
+	) COMMENT: "")
+
+(RULE: ProblemFuelSystem 10
+	IF
+		(CLASS: car OBJ: $x
+			(
+				(problem=="unknown") AND
+				(
+					(init_problem=="fuel_or_ignition") AND
+					(
+						(fuel_gauge_reading=="full") AND
+						(carburetor_gas=="yes")))))
+	THEN (
+		(MODIFY OBJ: $x 
+			(problem " has a faulty fuel system")
+		 1000 0.001)
+		(DISPLAY "fuel.jpg")
+	) COMMENT: "")
+
+(RULE: ProblemNoGas 10
+	IF
+		(CLASS: car OBJ: $x
+			(
+				(problem=="unknown") AND
+				(
+					(init_problem=="fuel_or_ignition") AND
+					(fuel_gauge_reading=="empty"))))
+	THEN (
+		(MODIFY OBJ: $x 
+			(problem " is out of gas")
+		 1000 0.001)
+		(DISPLAY "gas.jpg")
+	) COMMENT: "")
+
+(RULE: ProblemBadStarter 10
+	IF
+		(CLASS: car OBJ: $x
+			(
+				(problem=="unknown") AND
+				(
+					(init_problem=="starting_system") AND
+					(headlights=="working"))))
+	THEN (
+		(MODIFY OBJ: $x 
+			(problem " has a bad starter")
+		 1000 0.001)
+		(DISPLAY "starter.jpg")
+	) COMMENT: "")
+
+(RULE: ProblemFloodedEng 10
+	IF
+		(CLASS: car OBJ: $x
+			(
+				(problem=="unknown") AND
+				(
+					(init_problem=="fuel_or_ignition") AND
+					(
+						(carburetor_gas=="yes") AND
+						(spark_plug_spark=="exists")))))
+	THEN (
+		(MODIFY OBJ: $x 
+			(problem "flooded_engine")
+		 1000 0.001)
+		(DISPLAY "flooded.jpg")
+	) COMMENT: "")
+
+(RULE: ProblemFuelIgn 10
+	IF
+		(CLASS: car OBJ: $x
+			(
+				(problem=="unknown") AND
+				(
+					(init_problem=="unknown") AND
+					(
+						(ignition_key=="on") AND
+						(engine_turning_over=="yes")))))
+	THEN (
+		(READ PROMPT: "how are your headlights (working/dim/dead) ?" VAR: $h TYPE: s)
+		(READ PROMPT: "and spark plug spark (none/exists)?" VAR: $s TYPE: s)
+		(READ PROMPT: "status of your fuel gauge (full/empty):" VAR: $g TYPE: s)
+		(READ PROMPT: "smell on your carburetor (yes/no) ?" VAR: $carbu TYPE: s)
+		(MODIFY OBJ: $x 
+			(init_problem "fuel_or_ignition")
+			(headlights $h)
+			(spark_plug_spark $s)
+			(carburetor_gas $carbu)
+			(fuel_gauge_reading $g)
+		 1000 0.001)
+	) COMMENT: "")
+
+(RULE: ProblemStartSystem 10
+	IF
+		(CLASS: car OBJ: $x
+			(
+				(problem=="unknown") AND
+				(
+					(init_problem=="unknown") AND
+					(
+						(ignition_key=="on") AND
+						(engine_turning_over=="no")))))
+	THEN (
+		(READ PROMPT: "what about your headlights (working/dim/dead)?" VAR: $h TYPE: s)
+		(MODIFY OBJ: $x 
+			(init_problem "starting_system")
+			(headlights $h)
+		 2000 0.001)
+	) COMMENT: "")
+
+(RULE: Start1 20
+	IF
+		(CLASS: COSMOS_START OBJ: $x
+			(init_status==1))
+	THEN (
+		(MAKE CLASS: car OBJ: Acar
+			(problem "unknown")
+			(init_problem "unknown")
+			(vehicle_make "HONDA")
+			(ignition_key "off")
+		)
+		(MAKE CLASS: mechanic OBJ: Amec
+			(first_name "albert")
+		)
+		(MODIFY OBJ: $x 
+			(init_status 2)
+		 1000 0.001)
+		(PRINT 
+			"Creating a car instance "
+			| " vehicle_make = HONDA"
+			| ".\n"
+		)
+	) COMMENT: "")
+
+(RULE: Start 20
+	IF
+		(
+			(CLASS: car OBJ: $x
+				(
+					(problem=="unknown") AND
+					(
+						(vehicle_make==$mak) AND
+						(ignition_key!="on")))) AND
+			(CLASS: mechanic OBJ: $m
+				(first_name==$name)))
+	THEN (
+		(PRINT 
+			"Hello sir my name is "
+			| $name
+			| ".\n"
+		)
+		(PRINT 
+			"Please turn on the key of your "
+			| $mak
+			| ".\n"
+		)
+		(READ PROMPT: "Is the engine turning over (yes/no)? " VAR: $ans TYPE: s)
+		(MODIFY OBJ: $x 
+			(init_problem "unknown")
+			(ignition_key "on")
+			(engine_turning_over $ans)
+		 2000 0.001)
+	) COMMENT: "")
+
+(RULE: FinalDiagnostic 20
+	IF
+		(
+			(CLASS: car OBJ: $c
+				(problem!="unknown")) AND
+			(CLASS: car OBJ: $c
+				(problem==$problem)))
+	THEN (
+		(PRINT 
+			"sir I guess your car "
+			| $problem
+		)
+		(MODIFY OBJ: $c 
+			(ignition_key "off")
+			(problem "unknown")
+			(init_problem "done")
+		 2000 0.001)
+	) COMMENT: "")
+

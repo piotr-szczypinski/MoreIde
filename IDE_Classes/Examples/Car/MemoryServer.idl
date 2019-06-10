@@ -1,0 +1,12 @@
+module MemoryServer 
+{
+	 interface WMGetSetObject 
+	 {
+		void WMSetObject(in any obj, in string name);
+		void WMDeleteObject(in string name);
+		void WMGetObject(in long tin, out long tmax, out string on, out any obj);
+		void WMWaitForChange(in long ti);
+		void WMGetItem(in long index, out string name);
+	};
+};
+

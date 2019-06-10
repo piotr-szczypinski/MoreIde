@@ -1,0 +1,30 @@
+module ReteObjects{
+	struct car{
+		string problem;
+			float _P_H_Ep_problem;
+		string init_problem;
+			float _P_H_Ep_init_problem;
+		string headlights;
+			float _P_H_Ep_headlights;
+		string spark_plug_spark;
+			float _P_H_Ep_spark_plug_spark;
+		string fuel_gauge_reading;
+			float _P_H_Ep_fuel_gauge_reading;
+		string carburetor_gas;
+			float _P_H_Ep_carburetor_gas;
+		string ignition_key;
+			float _P_H_Ep_ignition_key;
+		string engine_turning_over;
+			float _P_H_Ep_engine_turning_over;
+		string vehicle_make;
+			float _P_H_Ep_vehicle_make;
+	};
+	struct COSMOS_START{
+		long init_status;
+			float _P_H_Ep_init_status;
+	};
+	struct mechanic{
+		string first_name;
+			float _P_H_Ep_first_name;
+	};
+};

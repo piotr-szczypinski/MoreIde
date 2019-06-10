@@ -1,0 +1,83 @@
+//==============================================================================
+//==============================================================================
+//==                                    ===****=====**=====**=====****==========
+//==  ParsingResults                    ===*===*====*=*===*=*====*====*=========
+//==                                    ===*===*====*==*=*==*=====**============
+//==  (C) 2002 by Piotr M. Szczypinski  ===****=====*===*===*=======**==========
+//==  NIST - Gaithersburg               ===*========*=======*====*====*=========
+//==                                    ===*========*=======*=====****==========
+//==============================================================================
+//==============================================================================
+
+----Conditions: reduced list --------------------
+// Unique conditions (may be multiplied in different rules)
+// index	object:variable_name:relation:expression
+1	container:variable1:==:"unknown"
+2	container:variable2:==:"unknown"
+3	container:variable1:!=:"unknown"
+4	COSMOS_START:init_status:==:1
+5	container:variable1:==: $3$variable1 
+6	container:variable2:==: $3$variable1 
+
+----Variables   ------------------------------
+// Variables used in LHS of rule
+// index	&rule_no&variable_name
+1	 $3$variable1 
+
+----Additional Variables ---------------------
+// Variables used only in RHS of rule
+// index	&rule_no&variable_name
+1	 $0$h 
+2	 $1$h 
+
+----Conditions  ------------------------------
+// List of all conditions
+// index of condition : object in token : -check or variable index
+1	1:0:0:4	container:0:variable1:==:"unknown"
+2	2:0:0:4	container:0:variable2:==:"unknown"
+3	3:0:0:4	container:0:variable1:!=:"unknown"
+4	4:0:0:1	COSMOS_START:0:init_status:==:1
+5	5:0:1:8	container:0:variable1:==: $3$variable1 
+6	6:0:1:8	container:0:variable2:==: $3$variable1 
+
+----objects sent------------------------------
+1	container:0:variable1:==:"unknown"
+2	container:0:variable2:==:"unknown"
+3	container:0:variable1:!=:"unknown"
+4	COSMOS_START:0:init_status:==:1
+5	container:0:variable1:==: $3$variable1 
+6	container:0:variable2:==: $3$variable1 
+
+----Nodes     --------------------------------
+1	AND 1 2
+2	AND 3 2
+3	AND 5 6
+
+----Rules      -------------------------------
+1	Input1:-1:1:1:0:10
+2	Input2:-2:1:1:0:10
+3	Start1:4:1:0:0:20
+4	Final:-3:1:1:0:20
+
+----RulesVIR   -------------------------------
+// Dependencies between rules and variables (used in backward chaining)
+1	 container:variable1 container:variable2
+2	 container:variable1 container:variable2
+3	 COSMOS_START:init_status
+4	 container:variable1 container:variable2
+
+----RulesCIR   -------------------------------
+// Dependencies between rules and entries in MODIFY list
+1	 1 2
+2	 3 2
+3	 4
+4	 5 6
+
+----MAKE list   ------------------------------
+1	container:object 2
+
+----MODIFY list ------------------------------
+1	container:variable1 0 2000 0.001
+2	container:variable2 1 1000 0.005
+3	COSMOS_START:init_status 2 1000 0.001
+

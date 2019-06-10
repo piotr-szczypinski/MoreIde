@@ -1,0 +1,23 @@
+//***   Rules   ***
+(RULE: ReadString 10
+	IF
+		(CLASS: CONTAINER OBJ: $x
+			(read<=10))
+	THEN (
+		(READ PROMPT: "Type something: " VAR: $r TYPE: s)
+		(MODIFY OBJ: $x 
+			(read 1)
+			(info $r)
+		 1000 0.001)
+	) COMMENT: "")
+
+(RULE: Start1 20
+	IF
+		(CLASS: COSMOS_START OBJ: $x
+			(init_status==1))
+	THEN (
+		(MAKE CLASS: CONTAINER OBJ: Con
+			(read 0)
+		)
+	) COMMENT: "")
+

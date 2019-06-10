@@ -1,0 +1,91 @@
+//***   Rules   ***
+(RULE: InStudy 30
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			((InStudy=="unknown")AND
+				((InBedroom!="yes") AND
+				(InDressingRoom!="yes"))))
+	THEN (
+		(READ PROMPT: "Did the crime occured in the victims study? (yes/no)" VAR: $s TYPE: s)
+		(MODIFY OBJ: $GarthwaiteCase 
+			(InStudy $s)
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: InBedroom 30
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			((InBedroom=="unknown")AND
+				((InDressingRoom!="yes") AND
+				(InStudy!="yes"))))
+	THEN (
+		(READ PROMPT: "Did the crime occured in the victims bedroom? (yes/no)" VAR: $s TYPE: s)
+		(MODIFY OBJ: $GarthwaiteCase 
+			(InBedroom $s)
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: InDressingRoom 30
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			((InDressingRoom=="unknown")AND
+				((InBedroom!="yes") AND
+				(InStudy!="yes"))))
+	THEN (
+		(READ PROMPT: "Did the crime occured in the victims dressing room? (yes/no)" VAR: $s TYPE: s)
+		(MODIFY OBJ: $GarthwaiteCase 
+			(InDressingRoom $s)
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: CrimeInPrivateDomain 10
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(
+				(
+					(InStudy=="yes") OR
+					(InDressingRoom=="yes")) OR
+				(InBedroom=="yes")))
+	THEN (
+		(MODIFY OBJ: $GarthwaiteCase 
+			(CrimeInPrivateDomain "yes")
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: VictimeNewAndTrustedKiller 20
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			((CrimeInPrivateDomain=="yes")AND(CrimeInPrivateDomain=="yes")))
+	THEN (
+		(MODIFY OBJ: $GarthwaiteCase 
+			(VictimeKnewAndTrustedKiller "yes")
+		 10 0.1)
+	) COMMENT: "")
+
+(RULE: Start 20
+	IF
+		(CLASS: COSMOS_START OBJ: $x
+			(init_status==1))
+	THEN (
+		(MAKE CLASS: Crime OBJ: GarthwaiteCase
+			(InStudy "unknown")
+			(InBedroom "unknown")
+			(InDressingRoom "unknown")
+			(CrimeInPrivateDomain "unknown")
+			(VictimeKnewAndTrustedKiller "unknown")
+		)
+		(MODIFY OBJ: $x 
+			(init_status 2)
+		 1000 0.001)
+	) COMMENT: "")
+
+(RULE: PrintAnswer 20
+	IF
+		(CLASS: Crime OBJ: $GarthwaiteCase
+			(VictimeKnewAndTrustedKiller=="yes"))
+	THEN (
+		(PRINT 
+			"IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII++++++++++++++++"
+		)
+	) COMMENT: "")
+
